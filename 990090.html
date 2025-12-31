@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy New Year Mithu!</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #000000, #1a1a1a, #b8860b, #ffd700);
+  background-size: 400% 400%;
+  animation: shimmerBackground 20s ease infinite;
+  color: #ffc107;
+}
+
+@keyframes shimmerBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#particles, #heartParticles, #confetti, #sparklesAllPages {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.particle, .heartParticle, .confettiPiece, .sparkle {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.particle { background: radial-gradient(circle, gold 0%, transparent 70%); }
+.heartParticle { background: radial-gradient(circle, red, orange, yellow, green, blue, violet); }
+.confettiPiece { width: 6px; height: 6px; background: radial-gradient(circle, gold, #ffda50, #ffd700); }
+.sparkle { width: 3px; height: 3px; background: radial-gradient(circle, #fff700, #ffd700); }
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: rgba(0,0,0,0.7);
+  border: 2px solid #ffc107;
+  border-radius: 2rem;
+  padding: 2rem;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(255,215,0,0.4), 0 0 60px rgba(255,191,64,0.2);
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(255,215,0,0.6), 0 0 80px rgba(255,191,64,0.3);
+}
+
+h1 { 
+  font-size: 2rem; 
+  margin-bottom: 1rem; 
+  color:#ffd700; 
+  background: linear-gradient(90deg, gold, #ffd700, #fff700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sparkleText 2s infinite alternate;
+}
+@keyframes sparkleText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+p { color:#ffd700cc; line-height: 1.5rem; }
+.button {
+  background: #ffc107;
+  color: black;
+  border: none;
+  border-radius: 9999px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background 0.3s;
+}
+.button:hover { background: #ffda50; }
+
+.heart {
+  font-size: 4rem;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  display: inline-block;
+  position: relative;
+}
+.heartFinal { font-size: 2rem; margin: 1rem; }
+.hidden { display: none; }
+.sparkles { font-size: 2rem; animation: sparkle 2s infinite alternate; }
+.smallText { font-size: 0.7rem; letter-spacing: 0.2em; }
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes sparkle {
+  0% { opacity: 0.6; transform: rotate(0deg); }
+  100% { opacity: 1; transform: rotate(20deg); }
+}
+
+.gift {
+  font-size: 2.5rem;
+  display: inline-block;
+  animation: rotateGift 4s infinite alternate;
+}
+
+@keyframes rotateGift {
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+ul { text-align: left; margin-top: 1rem; }
+</style>
+</head>
+<body>
+
+<div id="particles"></div>
+<div id="heartParticles"></div>
+<div id="confetti"></div>
+<div id="sparklesAllPages"></div>
+
+<div class="container">
+  <!-- Page 1 -->
+  <div class="card" id="page1">
+    <div class="gift">🎁</div>
+    <h1>Happy New Year Mithu,<br>I Love You</h1>
+    <p>A New Year surprise for my Kuchupuchu ✨</p>
+    <button class="button" onclick="nextPage()">Open Your Gift</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="card hidden" id="page2">
+    <p>
+      As this year ends, I don’t think about resolutions or promises — I think about us. About how we grew through small fights, silly laughs, quiet nights, and moments where just being together felt like enough. Loving you hasn’t been about perfection; it’s been about choosing each other even when things felt heavy, even when words failed. You turned ordinary days into something warm, something safe. In this new year, I don’t wish for grand things — I wish for more of you stealing my hoodies, more late-night talks, more comfort in silence, and more memories that only we understand. No matter what changes around us, one thing stays constant: my choice. You. Always.
+    </p>
+    <ul>
+      <li>The way you calm me without trying</li>
+      <li>The way home feels like you</li>
+      <li>The way I choose you, every time</li>
+    </ul>
+    <p><em>Next New Year, I want this page to feel familiar — because we’re still us.</em></p>
+    <button class="button" onclick="prevPage()">← Previous</button>
+    <button class="button" onclick="nextPage()">Continue →</button>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="card hidden" id="page3">
+    <p>Tap gently</p>
+    <div class="heart" onclick="explodeHeart(this)">❤️</div>
+    <p class="hidden" id="heartText">Even on the days I’m quiet, distracted, or messy — my heart knows where it belongs.</p>
+    <button class="button" onclick="nextPage()">Final Page</button>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="card hidden" id="page4">
+    <div class="sparkles">✨</div>
+    <p>This isn’t just a New Year wish — it’s my promise to keep choosing you.</p>
+    <p>Made with love on New Year’s Eve ✨</p>
+    <div class="heartFinal">❤️</div>
+    <p>Forever yours,<br>Pankul 🖤</p>
+    <p class="smallText">Made for Mithu</p>
+    <button class="button" onclick="goToPage(1)">Open Again</button>
+  </div>
+</div>
+
+<script>
+// Golden floating particles
+const particlesContainer = document.getElementById('particles');
+const particleCount = 50;
+const particles = [];
+for (let i = 0; i < particleCount; i++) {
+  const particle = document.createElement('div');
+  particle.classList.add('particle');
+  particle.x = Math.random() * window.innerWidth;
+  particle.y = window.innerHeight + Math.random() * 100;
+  const size = Math.random() * 6 + 2;
+  particle.style.width = size + 'px';
+  particle.style.height = size + 'px';
+  particle.speed = Math.random() * 1 + 0.5;
+  particle.amplitude = Math.random() * 20 + 10;
+  particle.frequency = Math.random() * 0.05 + 0.02;
+  particle.style.left = particle.x + 'px';
+  particle.style.top = particle.y + 'px';
+  particlesContainer.appendChild(particle);
+  particles.push(particle);
+}
+function animateParticles() {
+  particles.forEach((p) => {
+    p.y -= p.speed;
+    p.x += Math.sin(p.y * p.frequency) * p.amplitude * 0.01;
+    if (p.y < -10) {
+      p.y = window.innerHeight + Math.random() * 50;
+      p.x = Math.random() * window.innerWidth;
+    }
+    p.style.left = p.x + 'px';
+    p.style.top = p.y + 'px';
+  });
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// Sparkles on all pages
+const sparklesContainer = document.getElementById('sparklesAllPages');
+const sparkleCount = 30;
+const sparkles = [];
+for (let i=0;i<sparkleCount;i++){
+  const s=document.createElement('div');
+  s.classList.add('sparkle');
+  s.style.left=Math.random()*window.innerWidth+'px';
+  s.style.top=Math.random()*window.innerHeight+'px';
+  sparklesContainer.appendChild(s);
+  s.speedY=Math.random()*0.3+0.1;
+  s.speedX=(Math.random()-0.5)*0.2;
+  sparkles.push(s);
+}
+function animateSparkles(){
+  sparkles.forEach(s=>{
+    s.style.top=parseFloat(s.style.top)+s.speedY+'px';
+    s.style.left=parseFloat(s.style.left)+s.speedX+'px';
+    if(parseFloat(s.style.top)>window.innerHeight) s.style.top='-5px';
+    if(parseFloat(s.style.left)>window.innerWidth) s.style.left='0px';
+    if(parseFloat(s.style.left)<0) s.style.left=window.innerWidth+'px';
+  });
+  requestAnimationFrame(animateSparkles);
+}
+animateSparkles();
+
+// Page control
+let currentPage = 1;
+function showPage(page) {
+  for (let i = 1; i <= 4; i++) document.getElementById('page'+i).classList.add('hidden');
+  document.getElementById('page'+page).classList.remove('hidden');
+}
+function nextPage() { if(currentPage<4) currentPage++; showPage(currentPage); if(currentPage===4) createConfetti(); }
+function prevPage() { if(currentPage>1) currentPage--; showPage(currentPage); }
+function goToPage(page) { currentPage=page; showPage(page); if(currentPage===4) createConfetti(); }
+
+// Heart explosion
+function explodeHeart(element) {
+  revealHeart();
+  const heartParticles = document.getElementById('heartParticles');
+  for (let i=0;i<50;i++){
+    const p=document.createElement('div');
+    p.classList.add('heartParticle');
+    p.style.width=p.style.height=(Math.random()*6+4)+'px';
+    p.style.left=element.offsetLeft + element.offsetWidth/2 + 'px';
+    p.style.top=element.offsetTop + element.offsetHeight/2 + 'px';
+    p.speedX=(Math.random()-0.5)*6;
+    p.speedY=(Math.random()-1.5)*6;
+    p.life=Math.random()*30+30;
+    heartParticles.appendChild(p);
+    animateHeartParticle(p);
+  }
+}
+function animateHeartParticle(p){
+  const anim=setInterval(()=>{
+    p.life--;
+    p.style.left=parseFloat(p.style.left)+p.speedX+'px';
+    p.style.top=parseFloat(p.style.top)+p.speedY+'px';
+    p.style.opacity=p.life/60;
+    if(p.life<=0){ p.remove(); clearInterval(anim); }
+  },16);
+}
+function revealHeart(){ document.getElementById('heartText').classList.remove('hidden'); }
+
+// Confetti
+function createConfetti() {
+  const confettiContainer = document.getElementById('confetti');
+  for(let i=0;i<100;i++){
+    const c=document.createElement('div');
+    c.classList.add('confettiPiece');
+    c.style.left=Math.random()*window.innerWidth+'px';
+    c.style.top='-10px';
+    c.speedY=Math.random()*3+2;
+    c.speedX=(Math.random()-0.5)*4;
+    confettiContainer.appendChild(c);
+    animateConfetti(c);
+  }
+}
+function animateConfetti(c){
+  const anim=setInterval(()=>{
+    let top=parseFloat(c.style.top);
+    let left=parseFloat(c.style.left);
+    c.style.top=top+c.speedY+'px';
+    c.style.left=left+c.speedX+'px';
+    if(top>window.innerHeight){ c.remove(); clearInterval(anim); }
+  },16);
+}
+</script>
+</body>
+</html>
